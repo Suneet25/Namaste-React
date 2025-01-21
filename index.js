@@ -1,23 +1,5 @@
-{
-  /* <div id="parent">
-<div id="child1">
-<h1 id="heading1">
-I am an H1 tag.
-</h1>
-<h1 id="heading2">
-I am an H2 tag.
-</h1>
-</div>
-<div id="child2">
-<h1 id="heading1">
-I am an H1 tag.
-</h1>
-<h1 id="heading2">
-I am an H2 tag.
-</h1>
-</div>
-</div> */
-}
+import React from "react";
+import ReactDOM from "react-dom/client";
 
 const htmlElem = React.createElement("div", { id: "parent" }, [
   React.createElement("div", { id: "child1", key: "child1" }, [
