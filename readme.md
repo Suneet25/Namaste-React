@@ -31,3 +31,16 @@ dependencies are two types:-
 - We generally dont put node_modules, dist and parcel-cache into the git because the server itself could run the command like npm i and all because we are sending the package.json to the git. The server will fetch it from git and than it will install packages which will have node_modules , dist and parcel-cache file
 
 - local - git - server = Host - End User (Process)
+
+## Lec-4
+<!--
+! What is JSX-
+JSX code is React.createElement at the end of the day.
+! Functional Component-
+It's a javascript function which return JSX code or React elements.
+! Component Compostion-
+ It's nothing but component inside component
+! Cross-site-scripting-
+Basically JSX code won't directly run your code instead it sanitize data properly before execution.(If any malecious data sneak into any api than it wont get affected)
+
+ -->
