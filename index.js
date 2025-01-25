@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import Header from "./src/components/Header";
 
 // const htmlElem = React.createElement("div", { id: "parent" }, [
 //   React.createElement("div", { id: "child1", key: "child1" }, [
@@ -33,6 +34,7 @@ const title = (
   <>
     <div>Hello Suneet!</div>
     {ReactComp()}
+    <Header />
     <ReactComp />
     <ReactComp></ReactComp>
   </>
