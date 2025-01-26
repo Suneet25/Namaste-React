@@ -48,6 +48,29 @@ Basically JSX code won't directly run your code instead it sanitize data properl
 
 ## Lec-5
 
+
+ <!--
+ !! Monolythic Architecture-
+ * It is where in whole application its frontend,backend,apis,db,auth,notifications etc 
+
+ !! MicroService Architecture-
+ * It means that evrey service has its own work like backend , UI , Database , Email-Notification
+ * They have different repos and they works individually.
+ * There can be multiple services for UI as well like one service is based on react, one is build on Angular etc..
+ * And they all have different ports like Backend has 1000, UI has 1234 etc and they will connect to the domain name after got deployed.
+ e.g:- UI is deployed to "/" like that Backend is deployed to "/api"
+ * Right now evreyone is moving toward microservices .
+
+ !! 2 ways to render react comps-
+  1: Loads -> API Call (500 milli sec) -> render (This is the bad UI experience).
+  2: Loads -> Render (Skeleton) -> API Call -> render (This is a good UI experience becaus gitteriness will not be there.)
+
+ !! useEffect-
+ * useEffect will be called after component gets rendred.
+
+ * Whenever state variables updates, react triggers a reconciliation cycle (re-renders the component.)
+  -->
+=======
  <!-- 
  ! What are props in react comp?
  It' js at the end of the day and react functional comp is a function , so props is basically the argumants for a function.
@@ -89,3 +112,4 @@ e.g:- Let's take an array of items and map it to the UI with the help of react c
 ! Incremental rendering-
 * The ability to split the rendering works into multiple chunks and spread it to multiple frames.
 ! -->
+
