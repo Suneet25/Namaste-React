@@ -32,3 +32,13 @@
   padding: 10px 20px;
   width: 20px;
 }
+
+.NavHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.NavHeader > li {
+  list-style: none;
+}

@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { swiggyRestaurantUrl } from "../constants/Urls";
 import { useState, useEffect } from "react";
 
@@ -5,7 +6,7 @@ export const Restaurants = () => {
   const [listRestaurantData, setListRestaurantData] = useState([]);
   const [filteredRestaurant, setFilteredRestaurant] = useState([]);
   const [searchRestaurant, setSearchRestaurant] = useState("");
-
+  const navigate = useNavigate();
   const fetchRestaurantsData = async () => {
     const res = await fetch(swiggyRestaurantUrl);
     const json = await res.json();
@@ -26,7 +27,12 @@ export const Restaurants = () => {
   }, []);
 
   const filterRestaurantsOnRating = () => {
-    setListRestaurantData(
+    console.log(
+      listRestaurantData?.filter(
+        (restaurent) => restaurent?.info?.avgRating >= 4.5
+      )
+    );
+    setFilteredRestaurant(
       listRestaurantData?.filter(
         (restaurent) => restaurent?.info?.avgRating >= 4.5
       )
@@ -38,6 +44,10 @@ export const Restaurants = () => {
       item?.info?.name?.toLowerCase()?.includes(searchRestaurant?.toLowerCase())
     );
     setFilteredRestaurant(filteredRestaurants);
+  };
+
+  const handleRestaurtantClick = (resId) => {
+    navigate(`/restaurants/${resId}`);
   };
 
   return filteredRestaurant?.length === 0 ? (
@@ -60,7 +70,11 @@ export const Restaurants = () => {
       </div>
       <div className="restaurantContainer">
         {filteredRestaurant?.map((restaurant) => (
-          <div className="restaurant" key={restaurant?.info?.id}>
+          <div
+            className="restaurant"
+            key={restaurant?.info?.id}
+            onClick={() => handleRestaurtantClick(restaurant?.info?.id)}
+          >
             <img
               className="restaurantImg"
               src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/${restaurant?.info?.cloudinaryImageId}`}
