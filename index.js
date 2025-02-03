@@ -1,44 +1,41 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import ReactDOM from "react-dom/client";
-import Header from "./src/components/Header";
+import Restaurants from "./src/components/Restaurants";
+import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
+import { Error } from "./src/components/Error";
+import RestaurantCard from "./src/components/RestaurantCard";
+import Navbar from "./src/components/Navbar";
 
-// const htmlElem = React.createElement("div", { id: "parent" }, [
-//   React.createElement("div", { id: "child1", key: "child1" }, [
-//     React.createElement(
-//       "h1",
-//       { id: "heading1", key: "child1heading1" },
-//       "I am an H1 tag."
-//     ),
-//     React.createElement(
-//       "h2",
-//       { id: "heading2", key: "child1heading2" },
-//       "I am an H2 tag."
-//     ),
-//   ]),
-//   React.createElement("div", { id: "child2", key: "child2" }, [
-//     React.createElement(
-//       "h1",
-//       { id: "heading1", key: "child2heading1" },
-//       "I am an H1 tag."
-//     ),
-//     React.createElement(
-//       "h2",
-//       { id: "heading2", key: "child2heading2" },
-//       "I am an H2 tag."
-//     ),
-//   ]),
-// ]);
-const ReactComp = () => <div>This is a React Component!</div>;
+const AboutUs = lazy(() => import("./src/components/AboutUs"));
 
-const title = (
+const Container = () => (
   <>
-    <div>Hello Suneet!</div>
-    {ReactComp()}
-    <Header />
-    <ReactComp />
-    <ReactComp></ReactComp>
+    <Navbar />
+    <Outlet />
+    <h1>Footer</h1>
   </>
 );
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(title);
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Container />,
+    children: [
+      {
+        path: "/about-us",
+        element: (
+          <Suspense fallback={<h1>Loading AboutUs...</h1>}>
+            <AboutUs />
+          </Suspense>
+        ),
+      },
+      { path: "/restaurants", element: <Restaurants /> },
+      { path: "/restaurants/:id", element: <RestaurantCard /> },
+    ],
+    errorElement: <Error />,
+  },
+]);
+
+root.render(<RouterProvider router={router} />);

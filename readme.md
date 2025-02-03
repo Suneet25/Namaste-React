@@ -48,7 +48,6 @@ Basically JSX code won't directly run your code instead it sanitize data properl
 
 ## Lec-5
 
-
  <!--
  !! Monolythic Architecture-
  * It is where in whole application its frontend,backend,apis,db,auth,notifications etc 
@@ -70,7 +69,9 @@ Basically JSX code won't directly run your code instead it sanitize data properl
 
  * Whenever state variables updates, react triggers a reconciliation cycle (re-renders the component.)
   -->
+
 =======
+
  <!-- 
  ! What are props in react comp?
  It' js at the end of the day and react functional comp is a function , so props is basically the argumants for a function.
@@ -111,5 +112,64 @@ By default it will consider default export (priority will be high.)
 e.g:- Let's take an array of items and map it to the UI with the help of react comps. and lets filter it with rating more than 4. Than diffing algo comes into the picture it will check how many nodes are more than 4 rating it will remove other nodes from the tree.
 ! Incremental rendering-
 * The ability to split the rendering works into multiple chunks and spread it to multiple frames.
-! -->
+ -->
 
+## Lec-7
+
+ <!--
+ ! Rules for useState Hook- 
+ * Use useState hooks inside the body of the component.
+ * Do not loop through the useState hook,
+ * Never do conditional rendering on useState.
+
+ ! Rules for useEffect Hook-
+ * useEffect hook takes 2 arguments.
+   a) Callback function.
+   b) Dependency array .(optional)
+
+ * Dependency array decides how useEffect will render
+   a) If there is no depedency array than it will get called on evrey component render.
+   b) If there is empty dependency array than it will get called on first render of the component only.(Mounting phase).
+   c) If there is a variable present in the dependency array and if its changed than it will get called on mounting phase and also evreytime the variable changes.  
+ -->
+
+## Lec-8
+
+<!--
+! Class Components-
+
+* We know in class components , its the javascript class and it extends the properties of React.Component.
+* To excess the props we have to write this.props
+* To maintaion state we need to write this.state , its a big object which can store multiple variables.
+* To Update the state we need to call the function this.setState . Its a big object where we dont need to create more this.setState.
+
+! How the component life cycle works in class components?
+
+1> First the constructor will come into picture.
+2> Than render() method will get excecuted.
+3> At last the componentDidMount function will get excecuted.
+
+! How the component lifecycle will works if there are multiple child comps?
+
+- Parent component constructor will be called.
+- Parent component render method will get called.
+
+  - first child constructor will be called.
+  - first child render will be called
+
+  - second child constructor will be called.
+  - second child render will be called.
+-----COMMIT PHASE (mount will happen in batch to optimize the web app)
+  - first child component did mount
+  - second child component did mount
+
+- Parent component did mount
+
+>>> Class components life cycle
+1> Constructor
+2> render
+3> ComponentDidMount
+4>ComponentDidUpdate
+5>ComponentWillUnMount
+
+-->

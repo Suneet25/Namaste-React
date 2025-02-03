@@ -1,3 +1,44 @@
 #heading {
   color: red;
 }
+
+.restaurantContainer {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.functionalityContainer {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.restaurant {
+  width: 200px;
+  height: 400px;
+  border: border-red;
+}
+
+.restaurantImg {
+  width: 200px;
+  height: 200px;
+}
+
+.restaurentRating {
+  color: white;
+  background-color: green;
+  padding: 10px 20px;
+  width: 20px;
+}
+
+.NavHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.NavHeader > li {
+  list-style: none;
+}
