@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import useCheckOnline from "../hooks/useCheckOnline";
+import { UserContext } from "../contexts/UserContext";
 
 const Navbar = () => {
   const isOnline = useCheckOnline();
+  const { userData } = useContext(UserContext);
+
   return (
-    <div>
-      <ul className="NavHeader">
+    <div className="h-15">
+      <ul className="flex justify-center items-center gap-4 ">
         <li>
           <Link to={"/"}>Home</Link>
         </li>
@@ -18,6 +21,9 @@ const Navbar = () => {
         </li>
         <li>
           <h1>Online Status : {isOnline ? "🟢" : "🔴"}</h1>{" "}
+        </li>
+        <li>
+          <h1 className="font-bold text-lg">User Name : {userData}</h1>
         </li>
       </ul>
     </div>

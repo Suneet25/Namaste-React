@@ -1,5 +1,6 @@
 import React from "react";
 import ChildComp from "./ChildComp";
+import { UserContext } from "../contexts/UserContext";
 
 // const AboutUs = () => {
 //   return <div></div>;
@@ -32,6 +33,9 @@ class AboutUs extends React.Component {
         >
           AboutUs {count}
         </div>
+        <UserContext.Consumer>
+          {(data) => <h1 className="text-lg font-bold">{data.userData}</h1>}
+        </UserContext.Consumer>
         <div>
           <ChildComp name={"Suneet"} place={"Banglore"} />
           <ChildComp name={"Swagat"} place={"Cuttak"} />

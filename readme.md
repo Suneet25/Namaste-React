@@ -173,3 +173,19 @@ e.g:- Let's take an array of items and map it to the UI with the help of react c
 5>ComponentWillUnMount
 
 -->
+
+## Lec-11
+
+<!--
+! Higher Order Components-
+* This is a component which takes a component as input and also returns a new component . Basically the new component is the enhanced version of the old component.
+
+* Higher Order components are the pure function means , we are not changing the component we are getting but we are enhancing the component.
+
+* We generally sont change anything on the new component we just do any changes in props or small changes.
+
+! Lifting state up 
+
+! Contrlled and Uncontrolled components
+
+->
